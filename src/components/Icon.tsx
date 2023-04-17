@@ -19,7 +19,7 @@ try {
 
 
 export default function Icon(props: IconProps) {
-const {className, ...restProps} = props;
+  const {name, className, ...restProps} = props;
   return (
     <>
       <span className={s.container}>
