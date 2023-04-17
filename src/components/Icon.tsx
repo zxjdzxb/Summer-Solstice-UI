@@ -2,15 +2,15 @@ import s from './Icon.module.scss';
 import React from 'react';
 
 
-interface IconProps {
+interface IconProps extends React.SVGAttributes<SVGElement> {
   name: string,
-  onClick: React.MouseEventHandler<SVGElement>,
+  className: string,
 }
 
 
 const importAll = (requireContext: __WebpackModuleApi.RequireContext) => {
   requireContext.keys().forEach(requireContext);
-}
+};
 try {
   importAll(require.context('@/share/Icons', true, /\.svg$/));
 } catch (error) {
@@ -19,10 +19,13 @@ try {
 
 
 export default function Icon(props: IconProps) {
+const {className, ...restProps} = props;
   return (
     <>
       <span className={s.container}>
-      <svg className={s.Icon} onClick={props.onClick}>
+     <svg className={`${s[props.className]}`}
+          {...restProps}
+     >
         <use xlinkHref={`#${props.name}`}/>
       </svg>
       </span>
