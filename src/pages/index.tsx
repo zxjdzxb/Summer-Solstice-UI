@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Icon from '@/components/Inco';
+import Icon from '@/components/Icon';
 
 export default function Home() {
   return (

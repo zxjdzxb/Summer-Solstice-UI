@@ -10,7 +10,7 @@ const importAll = (requireContext: __WebpackModuleApi.RequireContext) => {
   requireContext.keys().forEach(requireContext);
 }
 try {
-  importAll(require.context('@/Share/Svg', true, /\.svg$/));
+  importAll(require.context('@/share/Icons', true, /\.svg$/));
 } catch (error) {
   console.log(error);
 }
