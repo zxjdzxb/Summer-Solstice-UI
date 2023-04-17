@@ -1,7 +1,11 @@
 import Head from 'next/head';
 import Icon from '@/components/Icon';
+import React from 'react';
 
 export default function Home() {
+  const fn: React.MouseEventHandler = (e) => {
+    console.log(e.target);
+  };
   return (
     <>
       <Head>
@@ -10,7 +14,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" href="/favicon.ico"/>
       </Head>
-      <Icon name="kings"/>
+      <Icon name="kings" onClick={fn} />
     </>
   );
 }

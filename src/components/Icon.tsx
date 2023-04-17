@@ -1,8 +1,10 @@
 import s from './Icon.module.scss';
+import React from 'react';
 
 
 interface IconProps {
-  name: string;
+  name: string,
+  onClick: React.MouseEventHandler<SVGElement>,
 }
 
 
@@ -20,7 +22,7 @@ export default function Icon(props: IconProps) {
   return (
     <>
       <span className={s.container}>
-      <svg className={s.Icon}>
+      <svg className={s.Icon} onClick={props.onClick}>
         <use xlinkHref={`#${props.name}`}/>
       </svg>
       </span>
