@@ -20,5 +20,9 @@
     "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@types/webpack-env": "^1.18.0",
+    "svg-sprite-loader": "^6.0.11"
   }
 }
