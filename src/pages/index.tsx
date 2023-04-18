@@ -1,17 +1,9 @@
 import Head from 'next/head';
-import Icon from '@/components/Icon';
-import React, {useRef, useState} from 'react';
-import Dialog from '@/components/Dialog';
+import React from 'react';
+import Link from 'next/link';
 
 export default function Home() {
-  const fn: React.MouseEventHandler = (e) => {
-    console.log(e.target);
-  };
-  const [x, setX] = useState(true);
-  const [y, setY] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
   return (
-
     <>
       <Head>
         <title>Create Next App</title>
@@ -19,15 +11,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" href="/favicon.ico"/>
       </Head>
-      <button onClick={() => setY(!y)}>click</button>
-      <Dialog visible={y} closeOnClickMask={true} buttons={
-        [
-          <button onClick={() => {setY(false);}} key={1}>确认</button>,
-          <button onClick={() => {setY(false);}} key={2}>取消</button>
-        ]
-      } onClose={() => {setY(false);}}>
-        <strong>HI</strong>
-      </Dialog>
+      <Link href="/DialogPage"></Link>
     </>
   );
 }
