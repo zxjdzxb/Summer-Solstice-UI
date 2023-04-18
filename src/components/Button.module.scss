@@ -1,4 +1,29 @@
-.container{
-    max-width: 960px;
-    padding-top: 0;
+.button {
+  border: 1px solid #999;
+  color: #333;
+  font-size: 16px;
+  border-radius: 8px;
+  width: 48px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+
+
+  .link {
+    background: blue;
+  }
+
+  button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .primary {
+    background: green;
+  }
+
+  .danger {
+    background: red;
+    border-color: rosybrown;
+  }
 }

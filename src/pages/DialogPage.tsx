@@ -4,9 +4,7 @@ import Dialog from '@/components/Dialog';
 
 
 export default function DialogPage() {
-  const [x, setX] = useState(true);
   const [y, setY] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
   return (
     <>
       <div className={s.container}>

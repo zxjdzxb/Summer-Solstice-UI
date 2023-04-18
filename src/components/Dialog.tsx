@@ -1,7 +1,6 @@
 import s from './Dialog.module.scss';
-import React, {ReactDOM} from 'react';
+import React from 'react';
 import Icon from '@/components/Icon';
-
 
 interface Props {
   visible: boolean,
@@ -31,7 +30,7 @@ export default function Dialog(props: Props) {
           <div className={s.mask} onClick={onClickMask}>
           </div>
           <div className={s.close} onClick={onClickClose}>
-            <Icon name='close' className="close"/>
+            <Icon name="close" className="close"/>
           </div>
           <header className={s.header}>提示</header>
           <main className={s.main}>
@@ -45,7 +44,7 @@ export default function Dialog(props: Props) {
         </div>
       </>
       :
-      <div>null</div>
+      null
   );
 
 }

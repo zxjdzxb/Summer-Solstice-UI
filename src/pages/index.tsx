@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
 import Link from 'next/link';
+import Icon from '@/components/Icon';
+import Button from '@/components/Button';
 
 export default function Home() {
   return (
@@ -11,7 +13,18 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" href="/favicon.ico"/>
       </Head>
-      <Link href="/DialogPage"></Link>
+      <Icon name="kings" className="kings}"/>
+      <Button
+        level="link" type="button"
+        disabled={false} autoSelfDisabled={false}
+        onClick={() => {
+          console.log('click');
+        }
+        }>按钮
+      </Button>
+      <Link href="/DialogPage">
+        DialogPage
+      </Link>
     </>
   );
 }
