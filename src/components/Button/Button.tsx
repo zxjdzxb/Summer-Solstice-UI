@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './Button.module.scss';
 const classNames = require('classnames');
-import Icon from '@/components/Icon';
+import Icon from '@/components/Icon/Icon';
 
 interface ButtonProps {
   type: string;

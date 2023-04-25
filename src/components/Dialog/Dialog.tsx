@@ -1,6 +1,6 @@
 import s from './Dialog.module.scss';
 import React from 'react';
-import Icon from '@/components/Icon';
+import Icon from '@/components/Icon/Icon';
 
 interface Props {
   visible: boolean,
