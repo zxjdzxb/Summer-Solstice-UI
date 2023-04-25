@@ -1,0 +1,43 @@
+.btn {
+  border: 1px solid red;
+  color: var(--foreground-rgb);
+  width: 4rem;
+  height: 2rem;
+}
+
+.btn[disabled] {
+  opacity: 0.5;
+}
+
+.primary {
+  background-color: var(--primary-color);
+}
+
+.success {
+  background-color: var(--success-color);
+}
+
+.danger {
+  background-color: var(--danger-color);
+}
+
+.warning {
+  background-color: var(--warning-color);
+}
+
+.large {
+  width: 4.8rem;
+  height: 2.4rem;
+  font-size: 1.1rem;
+}
+
+.small {
+  width: 3.8rem;
+  height: 1.8rem;
+  font-size: 0.5rem;
+}
+
+.normal {
+  width: 4rem;
+  height: 2rem;
+}

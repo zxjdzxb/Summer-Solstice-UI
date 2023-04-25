@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import Link from 'next/link';
 import Icon from '@/components/Icon';
-import Button from '@/components/Button';
+import Button from '@/components/Button/Button';
 
 export default function Home() {
   return (
@@ -14,14 +14,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico"/>
       </Head>
       <Icon name="kings" className="kings"/>
-      <Button
-        level="link" type="button"
-        disabled={false} autoSelfDisabled={false}
-        onClick={() => {
-          console.log('click');
-        }
-        }>按钮
-      </Button>
+      <Button disabled={true} type="primary" nativeType='button'>默认按钮</Button>
+      <Button type="success" >成功按钮</Button>
+      <Button size="large" type="danger">危险按钮</Button>
+      <Button size="small" type="warning">警告按钮</Button>
       <Link href="/DialogPage">
         DialogPage
       </Link>
