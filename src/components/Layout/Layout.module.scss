@@ -5,10 +5,11 @@
   display: grid;
   grid-template-columns: 15% 85%;
   grid-template-rows: 1.9fr 0.1fr;
-  gap: 0px;
+  gap: 0;
   grid-template-areas:
     "header main"
     "header footer";
+
   .header {
     grid-area: header;
     border: #007bff 1px solid;
@@ -18,7 +19,6 @@
     grid-area: main;
     border: #007b 1px solid;
   }
-
   .footer {
     grid-area: footer;
     border: #28a745 1px solid;
@@ -29,8 +29,8 @@
 
 }
 
-.title{
-  font-size: 2rem;
+.title {
+  font-size: var(--title-font-size);
   font-weight: bold;
   text-align: center;
   color: #007bff;
