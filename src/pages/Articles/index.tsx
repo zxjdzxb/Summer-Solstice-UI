@@ -8,7 +8,7 @@ export default function Page({
                                data,
                                count,
                                page,
-                             }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+                             }: InferGetServerSidePropsType<typeof getStaticProps>) {
   // Render data...
   console.log(data);
   return (
@@ -23,7 +23,7 @@ export default function Page({
 }
 
 // 每次刷新页面都后执行这个函数
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getStaticProps(context: GetServerSidePropsContext) {
   const page = (context.query?.page as string) || 1;
   // 通过 API 请求数据
   const uid = process.env.uid!;
