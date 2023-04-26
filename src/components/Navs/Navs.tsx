@@ -5,7 +5,7 @@ import Link from 'next/link';
 const routerList = [
   {text: '网站首页', link: '/'},
   {text: 'Dialog', link: '/DialogPage'},
-  {text: '自我介绍', link: '/about'},
+  {text: '文章列表', link: '/Articles'},
 ];
 
 interface navsProps {
