@@ -11,6 +11,7 @@ export default function Page({
                              }: InferGetServerSidePropsType<typeof getStaticProps>) {
   // Render data...
   console.log(data);
+  console.log(page);
   return (
     <>
       <Layout title="掘金文章">
@@ -34,7 +35,7 @@ export async function getStaticProps(context: GetServerSidePropsContext) {
     props: {
       data: data,
       count: count,
-      page: +page || 1
+      page: +page
     }
   };
 }

@@ -4,19 +4,20 @@ const classNames = require('classnames');
 import Icon from '@/components/Icon/Icon';
 
 interface ButtonProps {
-  type: string;
-  size?: string;
-  href?: string;
-  icon?: string;
-  round?: boolean;
-  disabled?: boolean;
-  nativeType?: 'button' | 'submit' | 'reset';
-  width?: string;
-  loading?: boolean; // 是否加
-  plain?: boolean; // 是否为朴素按钮
-  onClick?: () => void;
-  children?: React.ReactNode;
-  className?: string;
+  type: string,
+  size?: string,
+  href?: string,
+  icon?: string,
+  round?: boolean,
+  disabled?: boolean,
+  nativeType?: 'button' | 'submit' | 'reset',
+  width?: string,
+  loading?: boolean,
+  plain?: boolean,
+  onClick?: (e: any) => void,
+  children?: React.ReactNode,
+  className?: string,
+  style?: React.CSSProperties,
 }
 
 const ButtonApp: React.FC<ButtonProps> = (props) => {
@@ -29,22 +30,22 @@ const ButtonApp: React.FC<ButtonProps> = (props) => {
     disabled: disabled,
     [`${s[props.size ? props.size : '']}`]: props.size,
   });
-  const style = {width: props.width};
   const bntIcon = props.loading ? 'loading' : props.icon;
-  const onClick = () => {
+  const onClick = (e: any) => {
     if (disabled) {
       return;
     }
-    if (props.href) {
-      //navigate(props.href)
-    } else {
-      props.onClick && props.onClick();
-    }
+    props.onClick && props.onClick(e);
+    //if (props.href) {
+    //  //navigate(props.href)
+    //} else {
+    //  props.onClick && props.onClick();
+    //}
   };
   return (<button
       className={classes}
       type={props.nativeType}
-      style={style}
+      style={props.style}
       onClick={onClick}
       disabled={disabled}>
       {bntIcon ?

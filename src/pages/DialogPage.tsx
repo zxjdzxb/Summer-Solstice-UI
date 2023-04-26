@@ -1,26 +1,32 @@
 import s from '@/styles/DialogPage.module.scss';
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 import Dialog from '@/components/Dialog/Dialog';
 import Layout from '@/components/Layout/Layout';
+import Button from '@/components/Button/Button';
 
- function DialogPage() {
+
+function DialogPage() {
   const [y, setY] = useState(false);
+
+  const closeDialog = () => { setY(!y);};
   return (
     <>
       <Layout title="Dialog">
         <div className={s.container}>
-          <button onClick={() => setY(!y)}>click</button>
-          <Dialog visible={y} closeOnClickMask={true} buttons={
+          <Dialog visible={y} closeOnClickMask={false} buttons={
             [
-              <button onClick={() => {setY(false);}} key={1}>确认</button>,
-              <button onClick={() => {setY(false);}} key={2}>取消</button>
+              <Button onClick={() => {setY(false);}} key={1} type="primary">确认</Button>,
+              <Button onClick={() => {setY(false);}} key={2} type="primary">取消</Button>
             ]
-          } onClose={() => {setY(false);}}>
-            <strong>HI</strong>
+          }
+                  onClose={closeDialog}
+          >
+            <p>这是一条提示</p>
           </Dialog>
         </div>
       </Layout>
     </>
   );
 }
+
 export default DialogPage;
