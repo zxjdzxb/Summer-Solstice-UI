@@ -12,11 +12,13 @@ export default function Page({
   // Render data...
   console.log(data);
   console.log(page);
+  console.log(count);
   return (
     <>
       <Layout title="掘金文章">
         <h1>
           测试
+          {page}
         </h1>
       </Layout>
     </>

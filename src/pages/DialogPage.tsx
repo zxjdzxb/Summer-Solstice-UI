@@ -13,14 +13,13 @@ function DialogPage() {
     <>
       <Layout title="Dialog">
         <div className={s.container}>
-          <Dialog visible={y} closeOnClickMask={false} buttons={
-            [
-              <Button onClick={() => {setY(false);}} key={1} type="primary">确认</Button>,
-              <Button onClick={() => {setY(false);}} key={2} type="primary">取消</Button>
-            ]
-          }
-                  onClose={closeDialog}
-          >
+          <Dialog visible={y} closeOnClickMask={false} onClose={closeDialog}
+                  buttons={
+                    [
+                      <Button onClick={() => {setY(false);}} key={1} type="primary">确认</Button>,
+                      <Button onClick={() => {setY(false);}} key={2} type="primary">取消</Button>
+                    ]
+                  }>
             <p>这是一条提示</p>
           </Dialog>
         </div>
