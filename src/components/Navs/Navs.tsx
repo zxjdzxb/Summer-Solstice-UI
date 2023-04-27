@@ -6,6 +6,8 @@ const routerList = [
   {text: '网站首页', link: '/'},
   {text: 'Dialog', link: '/DialogPage'},
   {text: '文章列表', link: '/Articles'},
+  {text: '文章详情', link: '/Articles/[id]'},
+  {text: '井口', link: '/Wellhead'},
 ];
 
 interface navsProps {
