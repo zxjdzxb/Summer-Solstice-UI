@@ -6,7 +6,7 @@ const routerList = [
   {text: '网站首页', link: '/'},
   {text: 'Dialog', link: '/DialogPage'},
   {text: '文章列表', link: '/Articles'},
-  {text: '文章详情', link: '/Articles/[id]'},
+  {text: '文章详情', link: '/Articles/7166145871246000159'},
   {text: '井字小游戏', link: '/Wellhead'},
 ];
 
