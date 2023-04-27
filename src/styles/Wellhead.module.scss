@@ -1,0 +1,45 @@
+
+.board_row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game_info {
+  margin-left: 4rem;
+
+  .li {
+    width: 8rem;
+    height: 2rem;
+    list-style-type: none;
+    background: var(--info-color);
+    color: var(--font-color);
+    margin: -1px 0;
+  }
+}
+
+.current_step {
+  font-weight: bold;
+}
+
+.highlight_winner {
+  color: red;
+}
+
+.font_bold {
+  font-weight: bold;
+}
