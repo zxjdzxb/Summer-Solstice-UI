@@ -7,7 +7,7 @@ const routerList = [
   {text: 'Dialog', link: '/DialogPage'},
   {text: '文章列表', link: '/Articles'},
   {text: '文章详情', link: '/Articles/[id]'},
-  {text: '井口', link: '/Wellhead'},
+  {text: '井字小游戏', link: '/Wellhead'},
 ];
 
 interface navsProps {

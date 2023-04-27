@@ -3,6 +3,7 @@ import {GetServerSidePropsContext} from 'next';
 import {InferGetServerSidePropsType} from 'next';
 import {getArticles} from '@/pages/api/articles';
 import Layout from '@/components/Layout/Layout';
+import s from '@/styles/Articles.module.scss';
 
 export default function Page({
                                data,
@@ -16,10 +17,22 @@ export default function Page({
   return (
     <>
       <Layout title="掘金文章">
-        <h1>
-          测试
-          {page}
-        </h1>
+        <div className={s.container}>
+          <div className={s.article_list}>
+            {data.map((item: any) => (
+              <div key={item.article_id}>
+                <div className={s.title_item}>
+                  {item.article_info.title}
+                </div>
+                <div className={s.content_item}>
+                  {item.article_info.brief_content}
+                </div>
+              </div>
+
+            ))}
+
+          </div>
+        </div>
       </Layout>
     </>
   );
