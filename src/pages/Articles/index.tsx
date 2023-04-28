@@ -5,16 +5,19 @@ import {getArticles} from '@/pages/api/articles';
 import Layout from '@/components/Layout/Layout';
 import s from '@/styles/Articles.module.scss';
 import Link from 'next/link';
+import Pagination from '@/components/Pagination';
 
 export default function Page({
                                data,
                                count,
                                page,
-                             }: InferGetServerSidePropsType<typeof getStaticProps>) {
+                             }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   // Render data...
   console.log(data);
   console.log(page);
   console.log(count);
+  const prevPage = page - 1 > 0;
+  const nextPage = page + 1 <= count;
   return (
     <>
       <Layout title="掘金文章">
@@ -32,8 +35,42 @@ export default function Page({
                 </div>
               </div>
             ))}
-
           </div>
+          <footer>
+            {!prevPage && (
+              <button
+                className="cursor-auto disabled:opacity-50"
+                disabled={!prevPage}
+              >
+                上一页
+              </button>
+            )}
+            {prevPage && (
+              <Link
+                href={
+                  page - 1 === 1 ? `/Articles?page=1` : `/Articles?page=${page - 1}`
+                }
+              >
+                <button>上一页</button>
+              </Link>
+            )}
+            <span>
+          {page} of {Math.floor(count / 10) + 1}
+        </span>
+            {!nextPage && (
+              <button
+                className="cursor-auto disabled:opacity-50"
+                disabled={!nextPage}
+              >
+                下一页
+              </button>
+            )}
+            {nextPage && (
+              <Link href={`/Articles?page=${page + 1}`}>
+                <button>下一页</button>
+              </Link>
+            )}
+          </footer>
         </div>
       </Layout>
     </>
@@ -41,7 +78,7 @@ export default function Page({
 }
 
 // 每次刷新页面都后执行这个函数
-export async function getStaticProps(context: GetServerSidePropsContext) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
   const page = (context.query?.page as string) || 1;
   // 通过 API 请求数据
   const uid = process.env.uid!;
@@ -52,7 +89,7 @@ export async function getStaticProps(context: GetServerSidePropsContext) {
     props: {
       data: data,
       count: count,
-      page: +page
+      page: +page,
     }
   };
 }

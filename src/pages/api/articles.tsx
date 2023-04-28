@@ -13,7 +13,7 @@ export async function getArticleDetail(article_id: string) {
 }
 
 
-export async function getArticles(uid: string, cursor: number = 0) {
+export async function getArticles(uid: string, cursor: number) {
   const res = await axios.post(
     'https://api.juejin.cn/content_api/v1/article/query_list',
     {
