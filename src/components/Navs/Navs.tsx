@@ -6,7 +6,7 @@ const routerList = [
   {text: '网站首页', link: '/'},
   {text: 'Dialog', link: '/DialogPage'},
   {text: '文章列表', link: '/Articles'},
-  {text: '文章详情', link: '/Articles/7166145871246000159'},
+  {text: '文章详情', link: '/Articles/[id]'},
   {text: '井字小游戏', link: '/Wellhead'},
 ];
 
@@ -19,7 +19,7 @@ interface navsProps {
 export default function Navs() {
   const router = useRouter(),
     currentPage = router.pathname;
-  console.log(router.pathname);
+  // /Articles/[id] 不可以直接使用
   return (
     <nav>
       <ul>
@@ -46,9 +46,11 @@ function NavItem({text, link, currentpage}: navsProps) {
   } else {
     return (
       <li>
-        <Link href={link}>
-          <div>{text}</div>
-        </Link>
+        {link === '/Articles/[id]' ? null :
+          <Link href={link}>
+            <div>{text}</div>
+          </Link>
+        }
       </li>
     );
   }

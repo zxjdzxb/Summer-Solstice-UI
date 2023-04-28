@@ -4,6 +4,7 @@ import {InferGetServerSidePropsType} from 'next';
 import {getArticles} from '@/pages/api/articles';
 import Layout from '@/components/Layout/Layout';
 import s from '@/styles/Articles.module.scss';
+import Link from 'next/link';
 
 export default function Page({
                                data,
@@ -21,14 +22,15 @@ export default function Page({
           <div className={s.article_list}>
             {data.map((item: any) => (
               <div key={item.article_id}>
-                <div className={s.title_item}>
-                  {item.article_info.title}
-                </div>
+                <Link href={`/Articles/${item.article_id}`}>
+                  <div className={s.title_item}>
+                    {item.article_info.title}
+                  </div>
+                </Link>
                 <div className={s.content_item}>
                   {item.article_info.brief_content}
                 </div>
               </div>
-
             ))}
 
           </div>

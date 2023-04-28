@@ -21,10 +21,9 @@ function MDX(
   const result = matter(data?.article_info.mark_content || '');
   //每两个```一个替换~~~js 另一个替换~~~
   const content = result.content.replace(/(```)([^`]*)```/gm, '~~~js$2~~~');
-  console.log(content);
   return (
     <>
-      <Layout title="详情">
+      <Layout title={data.article_info.title}>
         <div className={s.container}>
           <div>
             <ReactMarkdown remarkPlugins={[remarkGfm]}
