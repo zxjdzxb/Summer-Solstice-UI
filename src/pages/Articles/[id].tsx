@@ -19,8 +19,6 @@ function MDX(
     return (<div>{statusCode}</div>);
   }
   const result = matter(data?.article_info.mark_content || '');
-  //每两个```一个替换~~~js 另一个替换~~~
-  const content = result.content.replace(/(```)([^`]*)```/gm, '~~~js$2~~~');
   return (
     <>
       <Layout title={data.article_info.title}>
@@ -34,7 +32,7 @@ function MDX(
                                  <SyntaxHighlighter
                                    {...props}
                                    style={dark}
-                                   language={match ? match[1] : 'text'}
+                                   language={match ? match[1] : 'typescript'}
                                    PreTag="div"
                                  >{String(children).replace(/\n$/, '')}</SyntaxHighlighter>
                                ) : (
@@ -44,7 +42,7 @@ function MDX(
                                );
                              }
                            }}
-            >{content}</ReactMarkdown>
+            >{result.content}</ReactMarkdown>
           </div>
         </div>
       </Layout>

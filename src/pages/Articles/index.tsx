@@ -1,29 +1,25 @@
 import React from 'react';
-import {GetServerSidePropsContext} from 'next';
-import {InferGetServerSidePropsType} from 'next';
+import {GetServerSidePropsContext, InferGetServerSidePropsType} from 'next';
 import {getArticles} from '@/pages/api/articles';
 import Layout from '@/components/Layout/Layout';
 import s from '@/styles/Articles.module.scss';
 import Link from 'next/link';
-import Pagination from '@/components/Pagination';
+import {Article} from '@/types/article';
 
-export default function Page({
-                               data,
-                               count,
-                               page,
-                             }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  // Render data...
-  console.log(data);
-  console.log(page);
-  console.log(count);
+export default function Page(
+  {
+    data,
+    count,
+    page,
+  }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const prevPage = page - 1 > 0;
-  const nextPage = page + 1 <= count;
+  const nextPage = page + 1 <= Math.floor(count / 10) + 1;
   return (
     <>
       <Layout title="掘金文章">
         <div className={s.container}>
           <div className={s.article_list}>
-            {data.map((item: any) => (
+            {data.map((item: Article) => (
               <div key={item.article_id}>
                 <Link href={`/Articles/${item.article_id}`}>
                   <div className={s.title_item}>
