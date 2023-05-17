@@ -21,7 +21,6 @@ export default function Home() {
     <>
       <Layout title="夏至">
         <div className={s.container}>
-          <h1>测试页面</h1>
           <div>
             <CheckboxGroup
               defaultValue={selectedValues}

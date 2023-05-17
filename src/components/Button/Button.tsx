@@ -1,7 +1,14 @@
 import React from 'react';
-import s from './Button.module.scss';
-const classNames = require('classnames');
+import classNames from 'classnames';
 import Icon from '@/components/Icon/Icon';
+import s from './Button.module.scss';
+
+enum ButtonType {
+  Primary = 'primary',
+  Secondary = 'secondary',
+  Success = 'success',
+  // 其他类型...
+}
 
 interface ButtonProps {
   type: string,
@@ -14,48 +21,48 @@ interface ButtonProps {
   width?: string,
   loading?: boolean,
   plain?: boolean,
-  onClick?: (e: any) => void,
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void,
   children?: React.ReactNode,
   className?: string,
   style?: React.CSSProperties,
 }
 
-const ButtonApp: React.FC<ButtonProps> = (props) => {
-  // 表单设置了true时，使用父级表单设置的
-  const disabled = props.disabled;
-  const size = props.size;
-  const classes = classNames(props.className, {
-    [`${s['btn']}`]: true,
-    [`${s[props.type]}`]: props.type,
+const Button: React.FC<ButtonProps> = (props) => {
+  const {disabled, size, className, type, nativeType, style, onClick, loading, icon, children} = props;
+
+  const classes = classNames(className, {
+    [s.btn]: true,
+    [s[type]]: type,
     disabled: disabled,
-    [`${s[props.size ? props.size : '']}`]: props.size,
+    [s[size ? size : '']]: size,
   });
-  const bntIcon = props.loading ? 'loading' : props.icon;
-  const onClick = (e: any) => {
+
+  const buttonIcon = loading ? 'loading' : icon;
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (disabled) {
       return;
     }
-    props.onClick && props.onClick(e);
-    //if (props.href) {
-    //  //navigate(props.href)
-    //} else {
-    //  props.onClick && props.onClick();
-    //}
+    onClick && onClick(e);
   };
-  return (<button
+
+  return (
+    <button
       className={classes}
-      type={props.nativeType}
-      style={props.style}
-      onClick={onClick}
-      disabled={disabled}>
-      {bntIcon ?
-        <Icon name="kings" className="kings"/> : ''
-      }
-      {props.children}</button>
+      type={nativeType}
+      style={style}
+      onClick={handleClick}
+      disabled={disabled}
+    >
+      {buttonIcon && <Icon name={buttonIcon} className={buttonIcon}/>}
+      {children}
+    </button>
   );
 };
-ButtonApp.defaultProps = {
+
+Button.defaultProps = {
   size: 'normal',
   nativeType: 'button'
 };
-export default ButtonApp;
+
+export default Button;

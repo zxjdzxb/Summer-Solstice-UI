@@ -6,21 +6,26 @@ import Button from '@/components/Button/Button';
 
 
 function DialogPage() {
-  const [y, setY] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-  const closeDialog = () => { setY(!y);};
+  const openDialog = () => {
+    setVisible(true);
+  };
+
+  const closeDialog = () => {
+    setVisible(false);
+  };
   return (
     <>
       <Layout title="Dialog">
         <div className={s.container}>
-          <Dialog visible={y} closeOnClickMask={false} onClose={closeDialog}
-                  buttons={
-                    [
-                      <Button onClick={() => {setY(false);}} key={1} type="primary">确认</Button>,
-                      <Button onClick={() => {setY(false);}} key={2} type="primary">取消</Button>
-                    ]
-                  }>
-            <p>这是一条提示</p>
+          <Button type="success" onClick={openDialog}>
+            Click me
+          </Button>
+
+          <Dialog visible={visible} onClose={closeDialog} closeOnClickMask>
+            <h2>自定义对话框</h2>
+            <p>这是一个自定义的对话框组件</p>
           </Dialog>
         </div>
       </Layout>

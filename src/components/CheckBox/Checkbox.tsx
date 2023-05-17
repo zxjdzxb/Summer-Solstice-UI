@@ -1,37 +1,38 @@
 import React from 'react';
 
-interface checkboxProps {
-  children: string;
-  onChange: (e: any) => void;
+interface CheckboxProps {
   checked: boolean;
+  value: string;
+  label: string;
+  disabled?: boolean;
+  beforeChange?: () => boolean;
+  onChange?: (checked: boolean) => void;
 }
 
-function Checkbox({
-                    children,
-                    onChange,
-                    checked
-                  }: checkboxProps) {
-
-  // 用来判断用户是否传入了复选框的文案
-  const createText = () => {
-    if (typeof children !== 'string') {
-      return '';
+const Checkbox: React.FC<CheckboxProps> = ({
+                                             checked,
+                                             value,
+                                             label,
+                                             disabled = false,
+                                             beforeChange,
+                                             onChange,
+                                           }) => {
+  const handleChange = () => {
+    if (beforeChange && !beforeChange()) {
+      return; // 阻止事件
     }
-    return <span>{children}</span>;
 
+    if (onChange) {
+      onChange(!checked);
+    }
   };
 
   return (
-    <div>
-      <input
-        type="checkbox"
-        className="cursor-pointer"
-        checked={checked}
-        onChange={(e) => onChange(e)}
-      />
-      {createText()}
-    </div>
+    <label>
+      <input type="checkbox" checked={checked} value={value} disabled={disabled} onChange={handleChange}/>
+      {label}
+    </label>
   );
-}
+};
 
 export default Checkbox;
