@@ -45,15 +45,40 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
   const inputType = type === 'datetime-local' ? 'datetime-local' : 'date';
 
+
+  const formatToLocalDateString = (date: Date | null): string => {
+    if (!date) return '';
+    return date.toLocaleDateString();
+  };
+
+  const formatToLocalDateTimeString = (date: Date | null): string => {
+    if (!date) return '';
+    return date.toLocaleString(undefined, {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      timeZone: 'UTC', // Set the time zone to 'UTC'
+    });
+  };
+
   return (
-    <input
-      type={inputType}
-      value={selectedDate ? selectedDate.toISOString().substr(0, 16) : ''}
-      placeholder={placeholder}
-      onChange={handleDateChange}
-      disabled={disabled}
-      readOnly={readonly}
-    />
+    <div>
+      <input
+        type={inputType}
+        value={selectedDate ? (type === 'date' ? selectedDate.toISOString().substr(0, 10) : selectedDate.toISOString().substr(0, 16)) : ''}
+        placeholder={placeholder}
+        onChange={handleDateChange}
+        disabled={disabled}
+        readOnly={readonly}
+      />
+      <p>
+        Selected Date:{' '}
+        {type === 'date' ? formatToLocalDateString(selectedDate) : formatToLocalDateTimeString(selectedDate) || 'None'}
+      </p>
+    </div>
   );
 };
 

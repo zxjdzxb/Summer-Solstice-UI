@@ -7,7 +7,7 @@ const routerList = [
   {text: 'Dialog', link: '/DialogPage'},
   {text: 'Checkbox', link: '/CheckboxPage'},
   {text: 'DatePicker', link: '/DataPickerPage'},
-  {text: '文章列表', link: '/Articles?page=1'},
+  {text: '掘金文章', link: '/Articles?page=1'},
   {text: '文章详情', link: '/Articles/[id]'},
   {text: '井字小游戏', link: '/Wellhead'},
 ];
@@ -20,7 +20,8 @@ interface navsProps {
 
 export default function Navs() {
   const router = useRouter(),
-    currentPage = router.pathname;
+    currentPage = router.asPath;
+
   // /Articles/[id] 不可以直接使用
   return (
     <nav>
@@ -39,6 +40,7 @@ export default function Navs() {
 }
 
 function NavItem({text, link, currentpage}: navsProps) {
+  console.log(link, currentpage);
   if (link === currentpage) {
     return (
       <li className="active">
