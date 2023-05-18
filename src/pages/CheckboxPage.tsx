@@ -19,7 +19,7 @@ export default function Home() {
   };
   return (
     <>
-      <Layout title="夏至">
+      <Layout title="Checkbox">
         <div className={s.container}>
           <div>
             <CheckboxGroup

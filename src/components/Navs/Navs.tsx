@@ -6,6 +6,7 @@ const routerList = [
   {text: '网站首页', link: '/'},
   {text: 'Dialog', link: '/DialogPage'},
   {text: 'Checkbox', link: '/CheckboxPage'},
+  {text: 'DatePicker', link: '/DataPickerPage'},
   {text: '文章列表', link: '/Articles?page=1'},
   {text: '文章详情', link: '/Articles/[id]'},
   {text: '井字小游戏', link: '/Wellhead'},
