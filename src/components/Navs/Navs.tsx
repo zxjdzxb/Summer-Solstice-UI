@@ -8,6 +8,8 @@ const routerList = [
   {text: 'Checkbox', link: '/CheckboxPage'},
   {text: 'DatePicker', link: '/DataPickerPage'},
   {text: 'Drawer', link: '/DrawerPage'},
+  {text: 'Input', link: '/InputPage'},
+  {text: 'Menu', link: '/MenuPage'},
   {text: '掘金文章', link: '/Articles?page=1'},
   {text: '文章详情', link: '/Articles/[id]'},
   {text: '井字小游戏', link: '/Wellhead'},
