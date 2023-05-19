@@ -1,8 +1,6 @@
-import React, {useState} from 'react';
-import s from '@/styles/Home.module.scss';
+import React from 'react';
 import Layout from '@/components/Layout/Layout';
-import CheckboxGroup from '@/components/CheckBox/CheckboxGroup';
-import DatePicker from '@/components/DataPicker/DataPicker';
+import s from '@/styles/Home.module.scss';
 
 export default function Home() {
 
@@ -11,10 +9,8 @@ export default function Home() {
     <>
       <Layout title="夏至">
         <div className={s.container}>
-          <h1>测试页面</h1>
-          <div>
-
-          </div>
+          <h1>首页</h1>
+          <div>测试</div>
         </div>
       </Layout>
     </>

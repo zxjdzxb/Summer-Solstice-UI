@@ -24,8 +24,7 @@ function DialogPage() {
           </Button>
 
           <Dialog visible={visible} onClose={closeDialog} closeOnClickMask>
-            <h2>自定义对话框</h2>
-            <p>这是一个自定义的对话框组件</p>
+            <p>QWERTY欧帕斯对方过后就开了自行车VB你们</p>
           </Dialog>
         </div>
       </Layout>

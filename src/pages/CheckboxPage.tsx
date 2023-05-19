@@ -8,10 +8,12 @@ export default function Home() {
     {label: '选项一', value: 'option1'},
     {label: '选项二', value: 'option2'},
     {label: '选项三', value: 'option3'},
+    {label: '选项四', value: 'option4'},
+    {label: '选项五', value: 'option5'},
   ];
 
   const [selectedValues, setSelectedValues] = useState<string[]>([
-    'option1', 'option2'
+    'option1', 'option2', 'option4'
   ]);
 
   const handleCheckboxGroupChange = (newSelectedValues: string[]) => {
