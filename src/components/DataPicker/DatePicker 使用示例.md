@@ -3,30 +3,40 @@
 以下是一个使用 `DatePicker` 组件的示例代码：
 
 ```tsx
-import React, { useState } from 'react';
-import DatePicker from '@/components/DatePicker/DatePicker';
+import React, {useState} from 'react';
+import DatePicker from '@/components/DataPicker/DataPicker';
+import Layout from '@/components/Layout/Layout';
 
-const DatePickerExample: React.FC = () => {
-  const [selectedDate, setSelectedDate] = useState<string>('');
 
-  const handleDateChange = (date: string) => {
+const Example: React.FC = () => {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+
+  const handleDateChange = (date: Date | null) => {
     setSelectedDate(date);
   };
 
   return (
-    <div>
-      <h2>DatePicker Example</h2>
-      <DatePicker
-        defaultValue={selectedDate}
-        placeholder="Select a date"
-        onChange={handleDateChange}
-      />
-      <p>Selected Date: {selectedDate}</p>
-    </div>
+    <Layout title="DataPicker">
+      <div>
+        <DatePicker
+          type="date"
+          onChange={handleDateChange}
+          placeholder="Select date"
+        />
+        <br/>
+        <DatePicker
+          type="datetime-local"
+          onChange={handleDateChange}
+          placeholder="Select date and time"
+        />
+        <br/>
+      </div>
+    </Layout>
   );
 };
 
-export default DatePickerExample;
+export default Example;
+
 
 ```
 

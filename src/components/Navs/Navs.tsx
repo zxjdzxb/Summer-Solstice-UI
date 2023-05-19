@@ -40,7 +40,6 @@ export default function Navs() {
 }
 
 function NavItem({text, link, currentpage}: navsProps) {
-  console.log(link, currentpage);
   if (link === currentpage) {
     return (
       <li className="active">
